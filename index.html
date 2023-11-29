@@ -1,1 +1,24 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Link</title>
+</head>
+<body>
+    <h1>Blind75 Randomizer</h1>
+    <button onclick="getRandomLink()">Get Random Question</button>
+    <p id="randomLink"></p>
+
+    <script>
+        function getRandomLink() {
+            fetch('/get_link')
+                .then(response => response.text())
+                .then(link => {
+                    document.getElementById('randomLink').innerText = link;
+                    window.open(link, '_blank'); // Open link in a new tab
+                });
+        }
+    </script>
+</body>
+</html>
